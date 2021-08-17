@@ -1,0 +1,28 @@
+CLASSES
+USUARIO -> ANUNCIANTE ou/e COMPRADOR
+GRAO -> TIPO GRAO
+
+REQUISITOS OBRIGATORIOS
+
+-> Usuario vai poder se cadastrar/logar
+-> Usuario vizualizar tabela de anuncios
+-> Usuario vai poder anunciar uma venda
+-> Usuario vai poder comprar
+-> Usuario vai poder modificar um anuncio
+-> Um usuario comprador recebe o contato do anunciante
+-> Usuario pode filtrar tabela de anuncios
+
+-> Um grão tem um historico de preço (mostrar gráfico)
+
+REQUISITOS NAO OBRIGATORIOS
+
+-> Atualizar os preços em tempo real
+-> Realizar leilão de grãos
+-> Gerar lista de fornecedores
+
+TELAS
+
+1. Tela principal (a que tem a tabela com todos anuncios)
+2. Tela de cadastro/login
+3. Perfil do Usuario (Contato,Breve Descrição , Vendas Realizas atraves do site, Localização)
+4. Sessao com tela para cada grão
