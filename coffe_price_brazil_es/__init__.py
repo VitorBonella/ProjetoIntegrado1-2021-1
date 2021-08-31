@@ -1,4 +1,7 @@
-from coffe import Coffe
+from coffee import Coffee
 
-coffee = Coffe()
-print(coffee.getTable().columns)
+coffee = Coffee()
+#print(coffee.get_table()["ARABICA RUIM"])
+#print(coffee.get_price("ARABICA RUIM", recent=True))
+coffee.print_info()
+

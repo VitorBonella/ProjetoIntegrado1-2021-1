@@ -30,6 +30,10 @@ def get_csv_file():
 
     df = pd.DataFrame(data=all_rows, columns=headings)
 
+    # Transforma a coluna de data como a de index
+    df.set_index("DATA", inplace=True)
+
+    # Tira a "tail" do dataframe
     df.to_csv("price_table.csv", index=False)
 
     return df
