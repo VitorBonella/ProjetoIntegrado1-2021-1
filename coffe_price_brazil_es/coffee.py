@@ -28,6 +28,9 @@ class Coffee:
             print("Type {} doesn't exist. Allowed types are: {}, {} and {}".format(coffee_type, self.table.columns[0], self.table.columns[1], self.table.columns[2]))
             return None
 
+    def get_prices_by_year(self, year):
+        return self.table[self.table.index.str.contains(str(year))]
+
     # Função que printa os tipos de grãos na tabela
     def print_info(self):
         for grao_info in self.info:
