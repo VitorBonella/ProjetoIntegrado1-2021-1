@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APLICATIVO DE CAFÉ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.css")}}">
+</head>
+<body>
+    <h1>APLICATIVO DE CAFÉ</h1>
+    {% if user %}
+    <p>Bem-vindo ao APLICATIVO DE CAFÉ, {{ user }}!</p>
+    {% else %}
+    <p>Bem-vindo ao APLICATIVO DE CAFÉ!</p>
+    {% endif %}
+    <script src="{{ url_for('static', filename="js/bootstrap.js")}}"></script>
+</body>
+</html>
