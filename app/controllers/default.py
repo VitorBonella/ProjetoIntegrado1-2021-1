@@ -8,6 +8,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/about")
-def about():
+@app.route("/anuncios")
+def anuncios():
     return render_template("about.html")
