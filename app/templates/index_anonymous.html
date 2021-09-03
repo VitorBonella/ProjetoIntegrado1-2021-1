@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ super() }} - About {% endblock %}
+{% block title %} {{ super() }} - Main {% endblock %}
 
 {% block content %}
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 100%;">
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 100%;height: 100%;">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -11,7 +11,7 @@
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner" style="height: 100%;">
-        <div class="carousel-item active" style="height: 100%;">
+        <div class="carousel-item active" style="height: 100%;" >
             <img class="bd-placeholder-img" style="object-fit: cover; object-position: 5px 20%;" width="100%" height="100%" src="https://images8.alphacoders.com/902/902013.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
 
             <div class="container">
@@ -49,7 +49,7 @@
                 <div class="carousel-caption"  style="font-size: large; bottom: 3rem; z-index: 10;">
                     <h1>Registre-se</h1>
                     <p>Apartir do momento que você for registrado, você tera completo acesso as informações de cada tipo de grão, </p>
-                        <p>além disso você poderá entrar em contato com clientes e poderá criar anúncios de compra.</p>
+                    <p>além disso você poderá entrar em contato com clientes e poderá criar anúncios de compra.</p>
                     <a class="btn btn-lg btn-primary" href="register">Registre-se aqui</a>
                 </div>
             </div>
