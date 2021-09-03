@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - About {% endblock %}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 4rem;">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="height: 65rem;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 5px 20%;" width="100%" height="100%" src="https://images8.alphacoders.com/902/902013.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Bem vindo ao APP DO CAFÉ</h1>
+                    <p>Somos uma startup focada em facilitar a compra e venda de café no ES. Nosso foco é estabelecer uma maior conexão entre cliente e fornecedores, aumentando a gama de contato de ambos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 65rem;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 53.5%;" width="100%" height="100%" src="https://besthqwallpapers.com/img/original/87700/coffee-grains-texture-black-coffee-coffee-background-brown-grains-aromatic-coffee-concepts.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+
+            <div class="container">
+                <div class="carousel-caption" style="  bottom: 3rem; z-index: 10;">
+                    <h1>Sempre com os dados mais atualizados</h1>
+                    <p>Utilizamos a base de dados da Cecafé, tendo todos os dias os preços de forma atualizada.</p>
+                    <a class="btn btn-lg btn-primary" href="https://www.cecafe.com.br">Saiba mais sobre Cecafé</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 65rem;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 35.5%;" width="100%" height="100%" src="https://media.istockphoto.com/photos/two-farmers-talk-on-the-field-then-shake-hands-use-a-tablet-picture-id1201829626?s=2048x2048" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>Segurança</h1>
+                    <p>Com apenas um clique, você poderá entrar em contato com o cliente que desejar comprar, tudo de forma segura e fácil.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="height: 65rem;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 55%;" width="100%" height="100%" src="https://voluntariadoempresarial.com.br/wp-content/uploads/2019/09/iStock-1007194468.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+
+            <div class="container">
+                <div class="carousel-caption"  style="font-size: large; bottom: 3rem; z-index: 10;">
+                    <h1>Registre-se</h1>
+                    <p>Apartir do momento que você for registrado, você tera completo acesso as informações de cada tipo de grão, </p>
+                        <p>além disso você poderá entrar em contato com clientes e poderá criar anúncios de compra.</p>
+                    <a class="btn btn-lg btn-primary" href="register">Registre-se aqui</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock %}
