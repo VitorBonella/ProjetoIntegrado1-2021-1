@@ -1,13 +1,12 @@
 from app import db
 from datetime import datetime
-from user import User
 
 
 class Post(db.Model):
     __tablename__ = "posts"
 
     post_id = db.Column(db.Integer, primary_key=True)
-    post_user = db.Column(db.Integer, db.ForeignKey('users.id'))
+    post_user = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     post_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     post_qtd_sacas = db.Column(db.Integer)
     post_active = db.Column(db.Integer)

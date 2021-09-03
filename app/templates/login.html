@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - Login {% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="row justify-content-center">
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+<form action="" method="POST">
+    {{form.csrf_token}}
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+            {{form.user(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Password</label>
+            {{form.password(class="form-control")}}
+    </div>
+    <div class="mb-3 form-check">
+            {{form.remember_user}}
+        <label class="form-check-label" >Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+ </div>
+</div>
+{% endblock %}
