@@ -73,13 +73,13 @@ def announces():
 @app.route("/infocafe/geral")
 def graph_test():
 
-    data = coffee.get_table()
+    # labels, values0, values1, values2 = coffee.get_prices_by_range("05/05/2020", "01/01/2022")
+    # labels, values0, values1, values2 = coffee.get_prices_by_year(2019)
 
-    labels = data.index.tolist()
-    values0 = data.iloc[:, 0].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
-    values1 = data.iloc[:, 1].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
-    values2 = data.iloc[:, 2].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
 
+    labels, values0 = coffee.get_prices_by_type("ARABICA RUIM")
+    _, values1 = coffee.get_prices_by_type("ARABICA BOM")
+    _, values2 = coffee.get_prices_by_type("CONILLON")
     values = [values0, values1, values2]
 
     return render_template("graph.html", labels=labels, values=values)

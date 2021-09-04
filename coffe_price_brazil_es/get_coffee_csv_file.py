@@ -1,7 +1,9 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
-
+import locale
+from locale import atof
+locale.setlocale(locale.LC_NUMERIC, '')
 
 def get_csv_file():
     page_url = "https://www.cecafe.com.br/indicadores-de-mercado/precos-vitoria/"
@@ -30,10 +32,18 @@ def get_csv_file():
 
     df = pd.DataFrame(data=all_rows, columns=headings)
 
+    # Ultima linha é de informação dos grãos, self.info guarda informação dos grãos
+    dfInfo = df.iloc[-1]
+
+    # Retira a ultima linha da tabela
+    df = df[:-1]
+
     # Transforma a coluna de data como a de index
     df.set_index("DATA", inplace=True)
+
+    df = df.applymap(atof)
 
     # Tira a "tail" do dataframe
     df.to_csv("price_table.csv", index=False)
 
-    return df
+    return df, dfInfo
