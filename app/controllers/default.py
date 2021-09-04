@@ -3,6 +3,7 @@ from flask import render_template, flash, redirect, url_for
 from app.models.login_form import LoginForm
 from app.models.user import User
 from flask_login import login_user, logout_user
+from coffe_price_brazil_es import coffee
 
 
 @login_manager.user_loader
@@ -41,4 +42,13 @@ def announces():
     return render_template("announces.html")
 
 
+@app.route("/infocafe/geral")
+def graph_test():
+
+    data = coffee.get_table()
+
+    labels = data.index.tolist()
+    values = data.iloc[:, 0].tolist()
+
+    return render_template("graph.html", labels=labels, values=values)
 

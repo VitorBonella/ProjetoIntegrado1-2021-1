@@ -1,4 +1,4 @@
-from get_coffee_csv_file import get_csv_file
+from coffe_price_brazil_es.get_coffee_csv_file import get_csv_file
 
 
 class Coffee:
@@ -37,7 +37,7 @@ class Coffee:
             print(grao_info)
 
     def get_price(self, coffee_type, day=None, recent=False):
-        if(recent == True):
+        if recent:
             try:
                 return self.table[coffee_type].iloc[-1]
             except KeyError:
@@ -47,7 +47,7 @@ class Coffee:
             try:
                 return self.table.loc[day, coffee_type]
             except KeyError:
-                if(coffee_type not in self.table.columns):
+                if coffee_type not in self.table.columns:
                     print("Type {} doesn't exist. Allowed types are: {}, {} and {}".format(coffee_type, self.table.columns[0], self.table.columns[1], self.table.columns[2]))
                 else:
                     print("Day {} not in the Price Table.".format(day))

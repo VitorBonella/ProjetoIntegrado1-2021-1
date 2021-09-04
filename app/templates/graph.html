@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - Grafico {% endblock %}
+
+{% block content %}
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js'></script>
+
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels:  [{% for item in labels %}
+                  "{{item}}",
+              {% endfor %}],
+        datasets: [{
+            label: 'Preço Arabica',
+            fill: false,
+            borderColor: "rgb(229,15,15)",
+            lineTension: 0.1,
+            data: [{% for item in values %}
+                      {{item}},
+                    {% endfor %}]
+
+        }]
+    },
+    options: {
+        responsive: false
+    }
+});
+</script>
+{% endblock %}
