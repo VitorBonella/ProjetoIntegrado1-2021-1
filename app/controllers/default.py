@@ -1,6 +1,7 @@
 from app import app, db, login_manager
 from flask import render_template, flash, redirect, url_for
 from app.models.login_form import LoginForm
+from app.models.register_form import RegisterForm
 from app.models.user import User
 from flask_login import login_user, logout_user
 from coffe_price_brazil_es import coffee
@@ -16,6 +17,27 @@ def load_user(id_u):
 def index():
     return render_template("index_anonymous.html")
 
+
+@app.route("/register", methods=["GET", "POST"])
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        new_user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=form.password.data,
+            name=form.name.data,
+            phone=form.phone.data
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect("/")
+        #return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
+    return render_template('register.html', form=form)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

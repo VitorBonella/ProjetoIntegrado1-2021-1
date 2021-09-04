@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - Login {% endblock %}
+
+{% block content %}
+<div class="container">
+ <div class="row justify-content-center">
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+<form action="" method="POST">
+    {{form.csrf_token}}
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+            {{form.name(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apelido</label>
+            {{form.username(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">E-mail</label>
+            {{form.email(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Senha</label>
+            {{form.password(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Confirme sua Senha</label>
+            {{form.confirm(class="form-control")}}
+        {%if form.errors.confirm %}
+            <div class="alert alert-danger" role="alert">
+                <ul class="nav mb-lg-0">
+                    {% for e in form.errors.confirm%}
+                    <li>{{e}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Telefone</label>
+            {{form.phone(class="form-control")}}
+    </div>
+
+    <div class="col-12">
+        {{form.accept_tos}}
+        <label class="form-check-label" >Concordo com os termos de uso</label>
+    </div>
+    {{form.submit(class="btn btn-primary")}}
+</form>
+  </div>
+ </div>
+</div>
+{% endblock %}

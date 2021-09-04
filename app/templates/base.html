@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B4FF8A;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B4FF8A; font-size: 15px !important;">
   <div class="container-fluid">
     <a class="navbar-brand nav-item" href="index">
       <img src="https://images.vexels.com/media/users/3/185520/isolated/preview/aae89bde5310bbc00a8f077465bfb22f-grao-de-cafe-marrom.png" width="40" height="40" class="rounded-circle">
@@ -43,24 +43,26 @@
           <a class="nav-link" href="sobreAPI">Nossa API</a>
         </li>
       </ul>
-      <ul class="navbar-nav mb-lg-0">
+      <ul class="nav mb-lg-0">
+        {% if current_user.is_authenticated %}
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
           </a>
-          {% if current_user.is_authenticated %}
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown2">
-            <li><a class="dropdown-item" href="#">Dashboard</a></li>
-            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-            <li><a class="dropdown-item" href="logout">Log Out</a></li>
+          <li><a class="dropdown-item" href="#">Dashboard</a></li>
+          <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+          <li><a class="dropdown-item" href="logout">Log Out</a></li>
           </ul>
-          {% else %}
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown2">
-            <li><a class="dropdown-item" href="login">Login</a></li>
-            <li><a class="dropdown-item" href=#>Registre-se</a></li>
-          </ul>
-          {% endif %}
         </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="login">Login</a>
+        </li>
+        <li>
+          <a type="button" class="btn btn-primary btn-lg" href="register">Registre-se</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

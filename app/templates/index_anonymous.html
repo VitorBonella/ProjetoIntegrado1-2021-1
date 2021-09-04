@@ -3,7 +3,10 @@
 {% block title %} {{ super() }} - Main {% endblock %}
 
 {% block content %}
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 100%;height: 100%;">
+<style>
+html, body { height: 100%; margin: 0; }
+</style>
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 60%;">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -11,8 +14,8 @@
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner" style="height: 100%;">
-        <div class="carousel-item active" style="height: 100%;" >
-            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 5px 20%;" width="100%" height="100%" src="https://images8.alphacoders.com/902/902013.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+        <div class="carousel-item active" style="height: 100%;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 50% 50%; filter: brightness(60%);" width="100%" height="100%" src="https://images8.alphacoders.com/902/902013.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
 
             <div class="container">
                 <div class="carousel-caption text-start">
@@ -21,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="height: 65rem;">
-            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 53.5%;" width="100%" height="100%" src="https://besthqwallpapers.com/img/original/87700/coffee-grains-texture-black-coffee-coffee-background-brown-grains-aromatic-coffee-concepts.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+        <div class="carousel-item" style="height: 100%;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 50% 50%; filter: brightness(60%);" width="100%" height="100%" src="https://besthqwallpapers.com/img/original/87700/coffee-grains-texture-black-coffee-coffee-background-brown-grains-aromatic-coffee-concepts.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
 
             <div class="container">
                 <div class="carousel-caption" style="  bottom: 3rem; z-index: 10;">
@@ -32,8 +35,8 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="height: 65rem;">
-            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 35.5%;" width="100%" height="100%" src="https://media.istockphoto.com/photos/two-farmers-talk-on-the-field-then-shake-hands-use-a-tablet-picture-id1201829626?s=2048x2048" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+        <div class="carousel-item" style="height: 100%;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 50% 50%; filter: brightness(80%);" width="100%" height="100%" src="https://media.istockphoto.com/photos/two-farmers-talk-on-the-field-then-shake-hands-use-a-tablet-picture-id1201829626?s=2048x2048" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
 
             <div class="container">
                 <div class="carousel-caption text-end">
@@ -42,11 +45,11 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="height: 65rem;">
-            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 0px 55%;" width="100%" height="100%" src="https://voluntariadoempresarial.com.br/wp-content/uploads/2019/09/iStock-1007194468.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
+        <div class="carousel-item" style="height: 100%;">
+            <img class="bd-placeholder-img" style="object-fit: cover; object-position: 50% 50%; filter: brightness(70%);" width="100%" height="100%" src="https://voluntariadoempresarial.com.br/wp-content/uploads/2019/09/iStock-1007194468.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></img>
 
             <div class="container">
-                <div class="carousel-caption"  style="font-size: large; bottom: 3rem; z-index: 10;">
+                <div class="carousel-caption"  style="font-size: large; bottom: 8%; z-index: 10;">
                     <h1>Registre-se</h1>
                     <p>Apartir do momento que você for registrado, você tera completo acesso as informações de cada tipo de grão, </p>
                     <p>além disso você poderá entrar em contato com clientes e poderá criar anúncios de compra.</p>
