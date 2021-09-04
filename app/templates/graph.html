@@ -9,27 +9,30 @@
 
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
-var ctx = document.getElementById('myChart');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels:  [{% for item in labels %}
-                  "{{item}}",
-              {% endfor %}],
-        datasets: [{
-            label: 'Preço Arabica',
-            fill: false,
-            borderColor: "rgb(229,15,15)",
-            lineTension: 0.1,
-            data: [{% for item in values %}
-                      {{item}},
-                    {% endfor %}]
+    let labels1 = [{% for item in labels %}
+                    "{{item}}",
+                  {% endfor %}]
+    let values1 = [{% for item in values %}
+                    {{item}},
+                  {% endfor %}]
 
-        }]
+    let ctx = document.getElementById('myChart');
+    let myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels1,
+    datasets: [{
+        label: 'Preço Arabica',
+        fill: true,
+        borderColor: "rgb(229,15,15)",
+        lineTension: 0.1,
+        data: values1
+
+    }]
     },
     options: {
         responsive: false
     }
-});
+    });
 </script>
 {% endblock %}

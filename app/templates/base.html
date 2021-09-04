@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B4FF8A; font-size: 15px !important;">
   <div class="container-fluid">
-    <a class="navbar-brand nav-item" href="index">
+    <a class="navbar-brand nav-item" href="/">
       <img src="https://images.vexels.com/media/users/3/185520/isolated/preview/aae89bde5310bbc00a8f077465bfb22f-grao-de-cafe-marrom.png" width="40" height="40" class="rounded-circle">
       <t>APP DO CAFÉ</t>
     </a>
@@ -70,12 +70,12 @@
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
-<div class="alert alert-warning">
-  <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
+<div class="alert alert-warning" style="margin-bottom: 0;">
+
+  {% for message in messages %}
+  <a>{{ message }}</a>
+  {% endfor %}
+
 </div>
 {% endif %}
 {% endwith %}

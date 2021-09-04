@@ -5,6 +5,7 @@ from app.models.register_form import RegisterForm
 from app.models.user import User
 from flask_login import login_user, logout_user
 from coffe_price_brazil_es import coffee
+from sqlalchemy import exc
 
 
 @login_manager.user_loader
@@ -31,13 +32,18 @@ def signup():
             name=form.name.data,
             phone=form.phone.data
         )
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+            flash("REGISTRADO COM SUCESSO")
+            return redirect("/")
+        except exc.IntegrityError:
+            flash("TOMO")
+            return render_template('register.html', form=form)
 
-        db.session.add(new_user)
-        db.session.commit()
-
-        return redirect("/")
-        #return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
+        # return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
     return render_template('register.html', form=form)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -70,7 +76,7 @@ def graph_test():
     data = coffee.get_table()
 
     labels = data.index.tolist()
-    values = data.iloc[:, 0].tolist()
+    values = data.iloc[:, 0].str.replace(".", "").str.replace(",", ".").astype("float32").tolist()
 
     return render_template("graph.html", labels=labels, values=values)
 
