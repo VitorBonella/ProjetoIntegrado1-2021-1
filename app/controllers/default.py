@@ -76,7 +76,11 @@ def graph_test():
     data = coffee.get_table()
 
     labels = data.index.tolist()
-    values = data.iloc[:, 0].str.replace(".", "").str.replace(",", ".").astype("float32").tolist()
+    values0 = data.iloc[:, 0].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
+    values1 = data.iloc[:, 1].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
+    values2 = data.iloc[:, 2].str.replace(".", "", regex=True).str.replace(",", ".", regex=True).astype("float32").tolist()
+
+    values = [values0, values1, values2]
 
     return render_template("graph.html", labels=labels, values=values)
 

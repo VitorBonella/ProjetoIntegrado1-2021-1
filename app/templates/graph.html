@@ -7,32 +7,62 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js'></script>
 
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart"></canvas>
 <script>
     let labels1 = [{% for item in labels %}
-                    "{{item}}",
-                  {% endfor %}]
-    let values1 = [{% for item in values %}
-                    {{item}},
-                  {% endfor %}]
+    "{{item}}",
+    {% endfor %}]
+    let values1 = [{% for item in values[0] %}
+    {{item}},
+    {% endfor %}]
+
+    let values2 = [{% for item in values[1] %}
+    {{item}},
+    {% endfor %}]
+
+    let values3 = [{% for item in values[2] %}
+    {{item}},
+    {% endfor %}]
 
     let ctx = document.getElementById('myChart');
     let myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels1,
-    datasets: [{
-        label: 'Preço Arabica',
-        fill: true,
-        borderColor: "rgb(229,15,15)",
-        lineTension: 0.1,
-        data: values1
+            datasets: [{
+                label: 'Preço Arabica ruim',
+                fill: false,
+                borderColor: "rgb(0,220,255)",
+                lineTension: 0.1,
+                data: values1
 
-    }]
-    },
-    options: {
-        responsive: false
-    }
+            },
+            {
+                label: 'Preço Arabica boa',
+                fill: false,
+                borderColor: "rgb(0,50,255)",
+                lineTension: 0.1,
+                data: values2
+
+            },
+            {
+                label: 'Preço Conillon',
+                fill: false,
+                borderColor: "rgb(63,255,0)",
+                lineTension: 0.1,
+                data: values3
+
+            }]
+        },
+        options: {
+            responsive: true,
+            elements: {
+                point:{
+                    radius: 0
+                }
+            }
+        }
     });
 </script>
+
 {% endblock %}
