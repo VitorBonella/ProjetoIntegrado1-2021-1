@@ -35,10 +35,10 @@ def signup():
         try:
             db.session.add(new_user)
             db.session.commit()
-            flash("REGISTRADO COM SUCESSO")
+            flash("Registrado com sucesso", "success")
             return redirect("/")
         except exc.IntegrityError:
-            flash("TOMO")
+            flash("Apelido já utilizado", "danger")
             return render_template('register.html', form=form)
 
         # return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
@@ -52,16 +52,17 @@ def login():
         u = User.query.filter_by(username=form.user.data).first()
         if u and u.password == form.password.data:
             login_user(u)
-            flash("logou")
+            flash("Logou com sucesso", "success")
             return redirect(url_for("index"))
         else:
-            flash("TOMO")
+            flash("Falha ao fazer login", "warning")
     return render_template("login.html", form=form)
 
 
 @app.route("/logout")
 def logout():
     logout_user()
+    flash("Logout", "success")
     return redirect(url_for("index"))
 
 
