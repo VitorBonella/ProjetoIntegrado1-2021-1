@@ -9,50 +9,28 @@
 
 <canvas id="myChart"></canvas>
 <script>
-    let labels1 = [{% for item in labels %}
+    let labels = [{% for item in labels %}
     "{{item}}",
-    {% endfor %}]
-    let values1 = [{% for item in values[0] %}
-    {{item}},
-    {% endfor %}]
-
-    let values2 = [{% for item in values[1] %}
-    {{item}},
-    {% endfor %}]
-
-    let values3 = [{% for item in values[2] %}
-    {{item}},
     {% endfor %}]
 
     let ctx = document.getElementById('myChart');
     let myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels1,
-            datasets: [{
-                label: 'Preço Arabica ruim',
-                fill: false,
-                borderColor: "rgb(0,220,255)",
-                lineTension: 0.1,
-                data: values1
-
-            },
-            {
-                label: 'Preço Arabica boa',
-                fill: false,
-                borderColor: "rgb(0,50,255)",
-                lineTension: 0.1,
-                data: values2
-
-            },
-            {
-                label: 'Preço Conillon',
-                fill: false,
-                borderColor: "rgb(63,255,0)",
-                lineTension: 0.1,
-                data: values3
-
-            }]
+            labels: labels,
+            datasets:[
+                {% for i in range(types|length) %}
+                {
+                    label: 'Preço {{types[i]}}',
+                    fill: false,
+                    borderColor: "{{colors[i]}}",
+                    lineTension: 0.1,
+                    data:   [{% for item in values[i] %}
+                            {{item}},
+                            {% endfor %}]
+                }{%if i <= types|length - 1 %},{% endif %}
+                {% endfor %}
+            ]
         },
         options: {
             responsive: true,
