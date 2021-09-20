@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} - Criar Anuncio {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container" style="margin: fill;">
+ <div class="row justify-content-center">
+  <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+<form action="" method="POST">
+  <div class="form-group row">
+    <label for="tipo_cafe" class="col-4 col-form-label">Tipo de Café</label>
+    <div class="col-8">
+      <select id="tipo_cafe" name="tipo_cafe" required="required" class="custom-select">
+        <option value="">Arábica Boa</option>
+        <option value="">Arábica Ruim</option>
+        <option value="">Conillon</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="qtd_sacas" class="col-4 col-form-label">Quantidade de Sacas</label>
+    <div class="col-8">
+      <input id="qtd_sacas" name="qtd_sacas" placeholder="0...inf" type="number" required="required" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-4">Tipo de Anuncio</label>
+    <div class="col-8">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="radio" id="radio_0" type="radio" required="required" class="custom-control-input" value="">
+        <label for="radio_0" class="custom-control-label">Venda</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="radio" id="radio_1" type="radio" required="required" class="custom-control-input" value="">
+        <label for="radio_1" class="custom-control-label">Compra</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="offset-4 col-8">
+      <button name="submit" type="submit" class="btn btn-primary">Criar Anuncio</button>
+    </div>
+  </div>
+</form>
+  </div>
+ </div>
+</div>
+
+{% endblock %}
