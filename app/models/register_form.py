@@ -15,5 +15,5 @@ class RegisterForm(FlaskForm):
     confirm = PasswordField('Repeat Password', [validators.DataRequired(), validators.EqualTo("password", message='Senhas não idênticas')])
     phone = StringField('phone', validators=[DataRequired()])
     accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
-    submit = SubmitField('submit')
+    submit = SubmitField('Submit')
 

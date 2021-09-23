@@ -19,7 +19,8 @@ class Post(db.Model):
 
     def __init__(self, user_id, qtd_sacas, post_type, post_coffe_type):
         self.post_user = user_id
-        self.post_username = User.query.filter_by(user_id=self.post_user).first().username
+        self.post_username = User.query.filter_by(user_id=self.post_user).first().username.capitalize()
+        print(User.query.filter_by(user_id=self.post_user))
         self.post_qtd_sacas = qtd_sacas
         self.post_coffe_type = post_coffe_type
         self.post_type = post_type

@@ -11,7 +11,7 @@ from app.models.post import Post
 
 @app.route("/announces")
 def announces():
-
+    print(Post.query.all())
     return render_template("announces.html", all_lines=Post.query.all())
 
 
@@ -23,7 +23,7 @@ def new_annouce():
         annouce_new = Post(user_id=flask_login.current_user.get_id(),
                            qtd_sacas=form.amount.data,
                            post_type=form.annouce_type.data,
-                           post_coffe_type=form.annouce_type.data)
+                           post_coffe_type=form.coffe_type.data)
         try:
             db.session.add(annouce_new)
             db.session.commit()
@@ -33,3 +33,11 @@ def new_annouce():
             flash("Erro ao criar anuncio", "danger")
             return render_template('create_annouce.html', form=form)
     return render_template("create_annouce.html", form=form)
+
+@app.route("/my_annouce", methods=["GET", "POST"])
+@login_required
+def my_annouce():
+    logged = flask_login.current_user
+    for posts in Post.query.filter_by(post_user=logged.get_id()).all():
+        print(posts.post_type, posts.post_username, posts.post_coffe_type)
+    return render_template("announces.html", all_lines=Post.query.filter_by(post_user=logged.get_id()).all())

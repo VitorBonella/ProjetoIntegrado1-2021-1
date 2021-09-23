@@ -3,26 +3,44 @@
 {% block title %} {{ super() }} - Main {% endblock %}
 
 {% block content %}
-<table class="table table-striped table-sm ">
+
+<table class="table table-striped table-sm table-hover">
     <thead>
     <tr>
-        <th scope="col">#</th>
+        <th scope="col" text-align="center">Tipo Anuncio</th>
         <th scope="col">Usuario</th>
         <th scope="col">Tipo Café</th>
-        <th scope="col">Tipo Anuncio</th>
         <th scope="col">Quantidade Sacas</th>
         <th scope="col">Data</th>
     </tr>
     </thead>
     <tbody>
     {% for l in all_lines %}
-    <tr>
-        <th scope="row">1</th>
+
+    {% if l.post_type == 1 %}
+    <tr class="table-success">
+    {% else %}
+    <tr class="table-primary">
+    {% endif %}
+
+        {% if l.post_type == 1 %}
+        <td text-align="center">Compra</td>
+        {% else %}
+        <td text-align="center">Venda</td>
+        {% endif %}
+
         <td>{{l.post_username}}</td>
-        <td>{{l.post_coffe_type}}</td>
-        <td>{{l.post_type}}</td>
+
+        {% if l.post_coffe_type == 1%}
+        <td>Arábica Ruim</td>
+        {% elif l.post_coffe_type == 2%}
+        <td>Arábica Boa</td>
+        {% else %}
+        <td>Conillon</td>
+
+        {% endif %}
         <td>{{l.post_qtd_sacas}}</td>
-        <td>{{l.post_date}}</td>
+        <td>{{l.post_date.strftime("%d/%m/%Y")}}</td>
     </tr>
     {% endfor %}
 
