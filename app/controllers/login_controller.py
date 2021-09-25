@@ -4,7 +4,7 @@ from flask import render_template, flash, redirect, url_for
 from sqlalchemy import exc
 from app.models.register_form import RegisterForm
 from app.models.user import User
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 
 
 @login_manager.user_loader
@@ -57,3 +57,14 @@ def logout():
     logout_user()
     flash("Logout", "success")
     return redirect(url_for("index"))
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
+    ]
+    return render_template('user.html', user=user, posts=posts)

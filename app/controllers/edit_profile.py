@@ -6,6 +6,7 @@ from flask import render_template
 from flask_login import login_required
 from app.models.edit_form import EditForm
 
+
 @app.route("/edit_profile")
 @login_required
 def edit_profile():

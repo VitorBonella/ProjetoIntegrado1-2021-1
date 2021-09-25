@@ -1,4 +1,5 @@
 from app import db
+from hashlib import md5
 
 
 class User(db.Model):
@@ -10,6 +11,11 @@ class User(db.Model):
     email = db.Column(db.String, unique=True)
     phone = db.Column(db.String, unique=True)
     name = db.Column(db.String)
+
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
+            digest, size)
 
     @property
     def is_authenticated(self):

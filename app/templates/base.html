@@ -49,10 +49,10 @@ html, body { height: 100%; margin: 0; }
         <ul class="nav mb-lg-0 justify-content-xxl-start">
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+            <img src="{{ current_user.avatar(128) }}" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu dropdown-menu-sm-end" aria-labelledby="navbarDropdown2">
-          <li><a class="dropdown-item" href="#">Dashboard</a></li>
+          <li><a class="dropdown-item" href="/user/{{current_user.name}}">Dashboard</a></li>
           <li><a class="dropdown-item" href="/new_annouce">Criar Anuncio</a></li>
           <li><a class="dropdown-item" href="/my_annouce">Meus Anuncios</a></li>
           <li><a class="dropdown-item" href="/edit_profile">Edit Profile</a></li>
