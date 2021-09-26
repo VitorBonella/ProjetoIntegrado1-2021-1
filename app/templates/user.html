@@ -2,10 +2,19 @@
 
 {% block content %}
 
-<img src="{{ user.avatar(128) }}">
-<h1>User: {{ user.username }}</h1>
-<h2>Email: {{user.email}}</h2>
-<h2>Phone: {{user.phone}}</h2>
-<hr>
+<div class="container" style="margin: fill;">
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4" >
+            <img src="{{ user.avatar(128) }}">
+            <h3>Nome </h3>
+            {{ user.name }}
+            <h3 >Email </h3>
+            {{user.email}}
+            <h3>Phone </h3>
+            {{user.phone}}
+            <hr>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

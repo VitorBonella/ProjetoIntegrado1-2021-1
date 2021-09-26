@@ -5,7 +5,7 @@ from app import db
 from flask_login import login_required
 from app import app
 from flask import render_template, flash, redirect
-from app.models.annouce_form import AnnouceForm
+from app.models.announce_form import AnnouceForm
 from app.models.post import Post
 
 
@@ -15,7 +15,7 @@ def announces():
     return render_template("announces.html", all_lines=Post.query.all())
 
 
-@app.route("/new_annouce", methods=["GET", "POST"])
+@app.route("/new_announce", methods=["GET", "POST"])
 @login_required
 def new_annouce():
     form = AnnouceForm()
@@ -31,13 +31,30 @@ def new_annouce():
             return redirect("/announces")
         except exc.IntegrityError:
             flash("Erro ao criar anuncio", "danger")
-            return render_template('create_annouce.html', form=form)
-    return render_template("create_annouce.html", form=form)
+            return render_template('create_announce.html', form=form)
+    return render_template("create_announce.html", form=form)
 
-@app.route("/my_annouce", methods=["GET", "POST"])
+
+@app.route("/my_announces", methods=["GET", "POST"])
 @login_required
 def my_annouce():
     logged = flask_login.current_user
-    for posts in Post.query.filter_by(post_user=logged.get_id()).all():
-        print(posts.post_type, posts.post_username, posts.post_coffe_type)
-    return render_template("announces.html", all_lines=Post.query.filter_by(post_user=logged.get_id()).all())
+    return render_template("announces.html", all_lines=Post.query.filter_by(post_user=logged.get_id()).all(), profile=True)
+
+
+@app.route("/del_announce/<post_id>", methods=["GET", "POST"])
+@login_required
+def del_annouce(post_id):
+    p = Post.query.filter_by(post_id=post_id).first_or_404()
+    db.session.delete(p)
+    db.session.commit()
+    return redirect("/my_announces")
+
+
+@app.route("/finish_announce/<post_id>", methods=["GET", "POST"])
+@login_required
+def finish_annouce(post_id):
+    p = Post.query.filter_by(post_id=post_id).first_or_404()
+    p.post_active = 0
+    db.session.commit()
+    return redirect("/my_announces")

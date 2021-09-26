@@ -12,16 +12,23 @@
         <th scope="col">Tipo Café</th>
         <th scope="col">Quantidade Sacas</th>
         <th scope="col">Data</th>
+        {%if profile==True%}
+        <th scope="col">AJUDA PRA KRL</th>
+        {%endif%}
     </tr>
     </thead>
     <tbody>
+
     {% for l in all_lines %}
 
-    {% if l.post_type == 1 %}
+    {% if l.post_active == 1 or (profile == True and l.post_active == 0) %}
+        {% if l.post_type == 1 and l.post_active == 1 %}
     <tr class="table-success">
-    {% else %}
+        {% elif l.post_active == 0 %}
+    <tr class="table-danger">
+        {% else %}
     <tr class="table-primary">
-    {% endif %}
+        {% endif %}
 
         {% if l.post_type == 1 %}
         <td text-align="center">Compra</td>
@@ -29,7 +36,7 @@
         <td text-align="center">Venda</td>
         {% endif %}
 
-        <td>{{l.post_username}}</td>
+        <td><a href="/user/{{l.post_username}}">{{l.post_username}}</a></td>
 
         {% if l.post_coffe_type == 1%}
         <td>Arábica Ruim</td>
@@ -41,12 +48,16 @@
         {% endif %}
         <td>{{l.post_qtd_sacas}}</td>
         <td>{{l.post_date.strftime("%d/%m/%Y")}}</td>
+        {%if profile==True%}
+        <td><a href="/del_announce/{{l.post_id}}">Excluir</a>/<a href="/finish_announce/{{l.post_id}}">Concluir</a></td>
+        {%endif%}
     </tr>
+    {%endif%}
     {% endfor %}
 
 
     <caption>
-        Captions of the table
+        Para pegar os contatos com o dono do anuncio clique em seu nome
     </caption>
 
 </table>

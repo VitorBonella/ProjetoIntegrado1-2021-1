@@ -52,9 +52,9 @@ html, body { height: 100%; margin: 0; }
             <img src="{{ current_user.avatar(128) }}" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu dropdown-menu-sm-end" aria-labelledby="navbarDropdown2">
-          <li><a class="dropdown-item" href="/user/{{current_user.name}}">Dashboard</a></li>
-          <li><a class="dropdown-item" href="/new_annouce">Criar Anuncio</a></li>
-          <li><a class="dropdown-item" href="/my_annouce">Meus Anuncios</a></li>
+          <li><a class="dropdown-item" href="/user/{{current_user.username}}">Dashboard</a></li>
+          <li><a class="dropdown-item" href="/new_announce">Criar Anuncio</a></li>
+          <li><a class="dropdown-item" href="/my_announces">Meus Anuncios</a></li>
           <li><a class="dropdown-item" href="/edit_profile">Edit Profile</a></li>
           <li><a class="dropdown-item" href="/logout">Log Out</a></li>
           </ul>

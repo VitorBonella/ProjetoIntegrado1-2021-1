@@ -14,4 +14,4 @@ login_manager.init_app(app)
 
 
 from app.models import user, post
-from app.controllers import default, login_controller, coffe_info_controller, annouce_controller, edit_profile
+from app.controllers import default, login_controller, coffe_info_controller, announce_controller, edit_profile
