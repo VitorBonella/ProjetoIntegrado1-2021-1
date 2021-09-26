@@ -20,7 +20,7 @@ def edit_profile():
         try:
             user = User.query.filter_by(user_id=logged.get_id()).first_or_404()
             if form.username.data != "":
-                if not User.query.filter_by(username=form.username.data).one():
+                if not User.query.filter_by(username=form.username.data).first():
                     user.username = form.username.data
                     posts_usuario = Post.query.filter_by(post_user=logged.get_id()).all()
                     for post in posts_usuario:
