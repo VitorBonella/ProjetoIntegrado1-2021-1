@@ -16,7 +16,7 @@ def graph_geral():
 
     return render_template("graph.html", labels=labels, values=values, types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
 
-
+'''
 @app.route("/infocafe/arabica_ruim")
 def graph_arabica_ruim():
 
@@ -48,3 +48,4 @@ def graph_conillon():
     labels, values0 = coffee.get_prices_by_type("CONILLON")
     values = [values0]
     return render_template("graph.html", labels=labels, values=values, types=["Conillon"], colors=["rgb(63,255,0)"])
+'''
