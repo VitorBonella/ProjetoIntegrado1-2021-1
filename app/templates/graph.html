@@ -5,7 +5,7 @@
 {% block content %}
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js'></script>
-
+<script src="https://kit.fontawesome.com/b3c69b37b7.js" crossorigin="anonymous"></script>
 
 <img class="bd-placeholder-img" style="object-fit: cover; object-position: 50% 55%; filter: brightness(70%);"
      width="100%" height="100%" src="https://cdn.pixabay.com/photo/2016/07/28/18/30/coffee-farm-1548771_960_720.jpg">
@@ -21,6 +21,11 @@
                         <div class="col">
                             <h5>Preço Atual</h5>
                             <a style="font-size:3vw">R$ {{last_prices[0]}}</a>
+                            {% if delta_price[0] == True %}
+                            <i class="fas fa-chevron-circle-up" style="color: green"></i>
+                            {% else %}
+                            <i class="fas fa-chevron-circle-down" style="color: red"></i>
+                            {% endif %}
                         </div>
                         <div class="col">
                             <h5>Média Preço 7 dias</h5>
@@ -33,6 +38,11 @@
                         <div class="col">
                             <h5>Preço Atual</h5>
                             <a style="font-size:3vw">R$ {{last_prices[1]}}</a>
+                            {% if delta_price[1] == True %}
+                            <i class="fas fa-chevron-circle-up" style="color: green"></i>
+                            {% else %}
+                            <i class="fas fa-chevron-circle-down" style="color: red"></i>
+                            {% endif %}
                         </div>
                         <div class="col">
                             <h5>Média Preço 7 dias</h5>
@@ -44,6 +54,11 @@
                         <div class="col">
                             <h5>Preço Atual</h5>
                             <a style="font-size:3vw">R$ {{last_prices[2]}}</a>
+                            {% if delta_price[2] == True %}
+                            <i class="fas fa-chevron-circle-up" style="color: green"></i>
+                            {% else %}
+                            <i class="fas fa-chevron-circle-down" style="color: red"></i>
+                            {% endif %}
                         </div>
                         <div class="col">
                             <h5>Média Preço 7 dias</h5>
@@ -69,9 +84,9 @@
     </div>
 </div>
 
-<div class="table" style="margin: 0;" >
+<div class="table" style="margin: 0;background-color: #964b00" >
     <div class="row">
-        <div class="col-8"  >
+        <div class="col-8"  style="background-color: whitesmoke;">
             <canvas id="myChart"></canvas>
 <script>
     let labels = [{% for item in labels %}
@@ -108,8 +123,38 @@
     });
 </script>
         </div>
-        <div class="col text-center" style="background-color: #964b00;color: whitesmoke;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur imperdiet risus. Proin molestie lectus sit amet gravida venenatis. Suspendisse tempor, augue quis volutpat condimentum, massa sem fermentum sem, ac imperdiet lacus orci vitae justo. Aenean dolor nulla, feugiat eu metus et, viverra molestie libero. Donec ullamcorper consequat lacinia. Suspendisse laoreet turpis sed sapien varius, in vulputate est placerat.
+
+        <div class="col align-self-center" style="color: whitesmoke;font-family: Verdana;">
+
+            O preço atual da saca de café do tipo ARABICA BOA
+            {%if delta_price[0] == True%}
+            subiu
+            {%else%}
+            desceu
+            {%endif%}
+            e se encontra R$ {{last_prices[0]}},
+            o preço médio da saca foi negociado a R$ {{prices_mean[0]}}
+            nos últimos 7 dias.
+
+            O preço do café do tipo ARABICA RUIM
+            {%if delta_price[1] == True%}
+            subiu
+            {%else%}
+            desceu
+            {%endif%}
+            e se encontra R$ {{last_prices[1]}} ,
+            o preço médio da saca foi negociado a R$ {{prices_mean[1]}}
+            nos últimos 7 dias.
+
+            O preço do café do tipo CONILLON
+            {%if delta_price[2] == True%}
+            subiu
+            {%else%}
+            desceu
+            {%endif%}
+            e se encontra R$ {{last_prices[2]}} ,
+            o preço médio da saca foi negociado a R$ {{prices_mean[2]}}
+            nos últimos 7 dias.
 
         </div>
     </div>

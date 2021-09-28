@@ -14,9 +14,20 @@ def graph_geral():
     _, values2 = coffee.get_prices_by_type("CONILLON")
     values = [values0, values1, values2]
     last_prices = [round(values0[-1]), round(values1[-1]), round(values2[-1])]
+
+    delta_price = [True if values0[-1] > values0[-2] else False,
+                   True if values1[-1] > values1[-2] else False,
+                   True if values2[-1] > values2[-2] else False]
+
     prices_mean = [round((values0[-8:-1].sum())/7), round((values1[-8:-1].sum())/7), round((values2[-8:-1].sum())/7)]
 
-    return render_template("graph.html", labels=labels, values=values, last_prices=last_prices, prices_mean=prices_mean, types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
+    return render_template("graph.html",
+                           labels=labels,
+                           values=values,
+                           last_prices=last_prices,
+                           delta_price=delta_price,
+                           prices_mean=prices_mean,
+                           types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
 
 '''
 @app.route("/infocafe/arabica_ruim")
