@@ -13,8 +13,10 @@ def graph_geral():
     _, values1 = coffee.get_prices_by_type("ARABICA BOM")
     _, values2 = coffee.get_prices_by_type("CONILLON")
     values = [values0, values1, values2]
+    last_prices = [round(values0[-1]), round(values1[-1]), round(values2[-1])]
+    prices_mean = [round((values0[-8:-1].sum())/7), round((values1[-8:-1].sum())/7), round((values2[-8:-1].sum())/7)]
 
-    return render_template("graph.html", labels=labels, values=values, types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
+    return render_template("graph.html", labels=labels, values=values, last_prices=last_prices, prices_mean=prices_mean, types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
 
 '''
 @app.route("/infocafe/arabica_ruim")

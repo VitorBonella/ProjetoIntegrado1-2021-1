@@ -18,15 +18,37 @@
                 <div class="col">
                     <div class="row">
                         <h2>Arabica Boa</h2>
-                        <a style="font-size:3vw">R$ 40</a>
+                        <div class="col">
+                            <h5>Preço Atual</h5>
+                            <a style="font-size:3vw">R$ {{last_prices[0]}}</a>
+                        </div>
+                        <div class="col">
+                            <h5>Média Preço 7 dias</h5>
+                            <a style="font-size:3vw">R$ {{prices_mean[0]}}</a>
+                        </div>
+
                     </div>
                     <div class="row">
                         <h2>Arabica Ruim</h2>
-                        <a style="font-size:3vw">R$ 40</a>
+                        <div class="col">
+                            <h5>Preço Atual</h5>
+                            <a style="font-size:3vw">R$ {{last_prices[1]}}</a>
+                        </div>
+                        <div class="col">
+                            <h5>Média Preço 7 dias</h5>
+                            <a style="font-size:3vw">R$ {{prices_mean[1]}}</a>
+                        </div>
                     </div>
                     <div class="row">
-                        <h2>Arabica Conillon</h2>
-                        <a style="font-size:3vw">R$ 40</a>
+                        <h2>Conillon</h2>
+                        <div class="col">
+                            <h5>Preço Atual</h5>
+                            <a style="font-size:3vw">R$ {{last_prices[2]}}</a>
+                        </div>
+                        <div class="col">
+                            <h5>Média Preço 7 dias</h5>
+                            <a style="font-size:3vw">R$ {{prices_mean[2]}}</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col">
@@ -47,7 +69,10 @@
     </div>
 </div>
 
-<canvas id="myChart"></canvas>
+<div class="table" style="margin: 0;" >
+    <div class="row">
+        <div class="col-8"  >
+            <canvas id="myChart"></canvas>
 <script>
     let labels = [{% for item in labels %}
     "{{item}}",
@@ -82,5 +107,11 @@
         }
     });
 </script>
+        </div>
+        <div class="col text-center" style="background-color: #964b00;color: whitesmoke;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur imperdiet risus. Proin molestie lectus sit amet gravida venenatis. Suspendisse tempor, augue quis volutpat condimentum, massa sem fermentum sem, ac imperdiet lacus orci vitae justo. Aenean dolor nulla, feugiat eu metus et, viverra molestie libero. Donec ullamcorper consequat lacinia. Suspendisse laoreet turpis sed sapien varius, in vulputate est placerat.
 
+        </div>
+    </div>
+</div>
 {% endblock %}
