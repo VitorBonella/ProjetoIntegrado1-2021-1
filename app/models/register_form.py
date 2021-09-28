@@ -24,6 +24,9 @@ class RegisterForm(FlaskForm):
             if "-" in phone.data:
                 phone.data = phone.data.replace("-", "")
             if len(phone.data) == 9:
+                if phone.data[0] != '9':
+                    flash("Número não começa com 9", "danger")
+                    raise ValidationError('Invalid phone number')
                 phone.data = phone.data[0:5] + "-" + phone.data[5:]
             elif len(phone.data) == 8:
                 phone.data = phone.data[0:4] + "-" + phone.data[4:]
