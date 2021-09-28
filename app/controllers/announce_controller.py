@@ -11,7 +11,6 @@ from app.models.post import Post
 
 @app.route("/announces")
 def announces():
-    print(Post.query.all())
     return render_template("announces.html", all_lines=Post.query.all())
 
 

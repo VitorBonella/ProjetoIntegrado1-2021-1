@@ -5,6 +5,7 @@ import locale
 from locale import atof
 locale.setlocale(locale.LC_NUMERIC, '')
 
+
 def get_csv_file():
     page_url = "https://www.cecafe.com.br/indicadores-de-mercado/precos-vitoria/"
     html = requests.get(page_url)

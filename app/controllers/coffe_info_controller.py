@@ -20,7 +20,7 @@ def graph_geral():
                    True if values2[-1] > values2[-2] else False]
 
     prices_mean = [round((values0[-8:-1].sum())/7), round((values1[-8:-1].sum())/7), round((values2[-8:-1].sum())/7)]
-
+    print(last_prices, delta_price, prices_mean)
     return render_template("graph.html",
                            labels=labels,
                            values=values,
