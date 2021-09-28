@@ -32,8 +32,18 @@ def edit_profile():
                 user.name = form.name.data
             if form.email.data != "":
                 user.email = form.email.data
+                if not User.query.filter_by(email=form.email.data).first():
+                    user.email = form.email.data
+                else:
+                    flash("Email já cadastrado", "danger")
+                    return render_template('profile.html', form=form, user=logged)
             if form.phone.data != "":
                 user.phone = form.phone.data
+                if not User.query.filter_by(phone=form.phone.data).first():
+                    user.phone = form.phone.data
+                else:
+                    flash("Telefone já cadastrado", "danger")
+                    return render_template('profile.html', form=form, user=logged)
             if form.password.data != "":
                 user.password = form.password.data
             db.session.commit()
