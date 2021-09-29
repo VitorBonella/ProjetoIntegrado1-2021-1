@@ -9,8 +9,8 @@
             <h3>Nome </h3>
             {{ user.name }}
             <h3>Email </h3>
-            <a>{{user.email}}</a>
-            <h3>Phone </h3>
+            <a href="mailto:{{user.email}}?subject=Fiquei interessado pelo seu anúncio!&body=Email gerado pelo APP-DO-CAFE">{{user.email}}</a>
+            <h3>Phone</h3>
             <a href="https://api.whatsapp.com/send/?phone={{user.phone.replace('-', '').replace('+','')}}&text=Fiquei interessado pelo seu anúncio!" target="_blank">{{user.phone}}</a>
             <hr>
         </div>
