@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import locale
 from locale import atof
-locale.setlocale(locale.LC_NUMERIC, '')
+locale.setlocale(locale.LC_NUMERIC, 'en_DK.utf8')
 
 
 def get_csv_file():
