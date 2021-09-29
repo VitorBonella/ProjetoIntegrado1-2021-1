@@ -19,7 +19,12 @@
                     <div class="col-md-6"><label class="labels">Username</label>{{form.username(class="form-control", placeholder=user.username)}}</div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Mobile Number</label>{{form.phone(class="form-control", placeholder=user.phone)}}</div>
+                    <div class="col-md-6"><label class="labels">Mobile Number</label>
+                        <div class="input-group">
+                        <div class="input-group-text">+55 027</div>
+                            {{form.phone(class="form-control", placeholder=user.phone[7:])}}
+                        </div>
+                    </div>
                     <div class="col-md-6"><label class="labels">Email ID</label>{{form.email(class="form-control", placeholder=user.email)}}</div>
                 </div>
                 <div class="row mt-2">

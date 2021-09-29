@@ -8,10 +8,10 @@
             <img src="{{ user.avatar(128) }}">
             <h3>Nome </h3>
             {{ user.name }}
-            <h3 >Email </h3>
-            {{user.email}}
+            <h3>Email </h3>
+            <a>{{user.email}}</a>
             <h3>Phone </h3>
-            {{user.phone}}
+            <a href="https://api.whatsapp.com/send/?phone={{user.phone.replace('-', '').replace('+','')}}&text=Fiquei interessado pelo seu anúncio!" target="_blank">{{user.phone}}</a>
             <hr>
         </div>
     </div>
