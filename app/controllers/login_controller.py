@@ -65,4 +65,4 @@ def user(username):
 
     user_name = User.query.filter_by(username=username).first_or_404()
 
-    return render_template('user.html', user=user)
+    return render_template('user.html', user=user_name)
