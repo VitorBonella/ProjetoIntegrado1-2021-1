@@ -39,7 +39,10 @@
     </div>
     <div class="mb-3">
         <label  class="form-label">Telefone</label>
-            {{form.phone(class="form-control", placeholder="+55 027")}}
+        <div class="input-group">
+        <div class="input-group-text">+55 027</div>
+            {{form.phone(class="form-control")}}
+        </div>
     </div>
 
     <div class="col-12">
