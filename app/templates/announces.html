@@ -13,7 +13,7 @@
         <th scope="col">Quantidade Sacas</th>
         <th scope="col">Data</th>
         {%if profile==True%}
-        <th scope="col">AJUDA PRA KRL</th>
+        <th scope="col"></th>
         {%endif%}
     </tr>
     </thead>
@@ -39,9 +39,9 @@
         <td><a href="/user/{{l.post_username}}">{{l.post_username}}</a></td>
 
         {% if l.post_coffe_type == 1%}
-        <td>Arábica Ruim</td>
+        <td>Arábica "Dura"</td>
         {% elif l.post_coffe_type == 2%}
-        <td>Arábica Boa</td>
+        <td>Arábica "Rio"</td>
         {% else %}
         <td>Conillon</td>
 

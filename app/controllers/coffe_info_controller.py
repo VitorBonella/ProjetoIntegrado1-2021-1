@@ -27,7 +27,7 @@ def graph_geral():
                            last_prices=last_prices,
                            delta_price=delta_price,
                            prices_mean=prices_mean,
-                           types=["Arabica ruim", "Arabica bom", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
+                           types=["Arabica 'Dura'", "Arabica 'Rio'", "Conillon"], colors=["rgb(0,220,255)", "rgb(0,50,255)", "rgb(63,255,0)"])
 
 '''
 @app.route("/infocafe/arabica_ruim")
