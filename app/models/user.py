@@ -3,6 +3,7 @@ from hashlib import md5
 
 
 class User(db.Model):
+
     __tablename__ = "users"
 
     user_id = db.Column(db.Integer, primary_key=True)
@@ -13,6 +14,13 @@ class User(db.Model):
     name = db.Column(db.String)
 
     def avatar(self, size):
+        """ Gera o avatar de um usuário
+
+        :param size: Tamanho do avatar
+        :type size: Integer
+        :return: URL da imagem do avatar
+        :rtype: URL
+        """
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)

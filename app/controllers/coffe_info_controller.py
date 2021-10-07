@@ -5,7 +5,11 @@ from coffe_price_brazil_es import coffee
 
 @app.route("/infocafe/geral")
 def graph_geral():
+    """ Renderizar as informações sobre o café;
 
+    :return: Página de Informações sobre café
+    :rtype: Template HTML
+    """
     # labels, values0, values1, values2 = coffee.get_prices_by_range("05/05/2020", "01/01/2022")
     # labels, values0, values1, values2 = coffee.get_prices_by_year(2019)
 

@@ -13,6 +13,11 @@ import phonenumbers
 @app.route("/edit_profile", methods=["POST", "GET"])
 @login_required
 def edit_profile():
+    """ Renderizar a página de um perfil
+
+    :return: Página de edição de perfil
+    :rtype: Template HTML
+    """
     form = EditForm()
     logged = flask_login.current_user
     if form.is_submitted():
@@ -63,6 +68,11 @@ def edit_profile():
 
 
 def validate_phone(phone):
+    """ Função que valida um determinado telefone
+
+    :param phone: Número de telefone
+    :type phone: String
+    """
     try:
         if "-" in phone.data:
             phone.data = phone.data.replace("-", "")

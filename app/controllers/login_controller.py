@@ -15,6 +15,11 @@ def load_user(id_u):
 @app.route("/register", methods=["GET", "POST"])
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
+    """ Renderizar a página de registro
+
+    :return: Página de registro
+    :rtype: Template HTML
+    """
     form = RegisterForm()
 
     if form.validate_on_submit():
@@ -40,6 +45,11 @@ def signup():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ Renderizar página de login
+
+    :return: Página de login
+    :rtype: Template HTML
+    """
     form = LoginForm()
     if form.validate_on_submit():
         u = User.query.filter_by(username=form.user.data).first()
@@ -54,6 +64,11 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """ Realizar logout de um usuário
+
+    :return: Página home
+    :rtype: Template HTML
+    """
     logout_user()
     flash("Logout", "success")
     return redirect(url_for("index"))
@@ -62,7 +77,13 @@ def logout():
 @app.route('/user/<username>')
 @login_required
 def user(username):
+    """ Renderizar a aba de Dashboard de um usuário
 
+    :param username: Username de usuário
+    :type username: String
+    :return: Página de Dashboard
+    :rtype: Template HTML
+    """
     user_name = User.query.filter_by(username=username).first_or_404()
 
     return render_template('user.html', user=user_name)
