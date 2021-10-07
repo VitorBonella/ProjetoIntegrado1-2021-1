@@ -1,5 +1,7 @@
 from coffe_price_brazil_es.get_coffee_csv_file import get_csv_file
 import pandas as pd
+
+
 class Coffee:
     def __init__(self):
         try:

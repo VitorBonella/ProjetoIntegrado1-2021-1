@@ -9,6 +9,9 @@ locale.setlocale(locale.LC_NUMERIC, 'en_DK.utf8')
 def get_csv_file():
     """ Cria um arquivo csv com as informações sobre o preço do café
 
+    Algoritmo que faz web scrap na pagina https://www.cecafe.com.br/indicadores-de-mercado/precos-vitoria/,
+    para gerar um historico de preço do café
+
     :return: Dataframe com preços e Informações sobre o café
     :rtype: pd.Dataframe e pd.Series
     """

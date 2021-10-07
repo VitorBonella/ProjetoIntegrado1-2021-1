@@ -16,6 +16,8 @@ class User(db.Model):
     def avatar(self, size):
         """ Gera o avatar de um usuário
 
+        Utiliza o site gravatar para gerar um avatar unico para o usuario.
+
         :param size: Tamanho do avatar
         :type size: Integer
         :return: URL da imagem do avatar
