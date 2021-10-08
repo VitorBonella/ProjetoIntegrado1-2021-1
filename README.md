@@ -5,7 +5,7 @@ Foi desenvolvida uma aplicação web para comportar as funcionalidades do app. A
 
 ## Como usar
 
-A aplicação e suas funcionalidades podem ser acessadas publicamente neste [link](cafe-app-pi.herokuapp.com).
+A aplicação e suas funcionalidades podem ser acessadas publicamente neste [link](https://cafe-app-pi.herokuapp.com).
 
 Além disso a documentação está disponivel através do github Pages [link](https://vitorbonella.github.io/ProjetoIntegrado1-2021-1/).
 Ou para abrir a documentação basta abrir index.html, presente na pasta docs.
