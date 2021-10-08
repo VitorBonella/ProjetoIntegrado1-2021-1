@@ -3,7 +3,9 @@ from hashlib import md5
 
 
 class User(db.Model):
+    """ Classe da tabela de usuários
 
+    """
     __tablename__ = "users"
 
     user_id = db.Column(db.Integer, primary_key=True)

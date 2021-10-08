@@ -8,7 +8,9 @@ from flask_login import current_user
 
 
 class EditForm(FlaskForm):
+    """ Classe para o formulário de edição de perfil
 
+    """
     name = StringField("name")
     username = StringField("username")
     email = EmailField('email', [validators.Email()])
@@ -19,6 +21,10 @@ class EditForm(FlaskForm):
 
     @staticmethod
     def validate_username(self, username):
+        """
+        :param username: Username
+        :type username: String
+        """
         if username.data != current_user.username:
             user = User.query.filter_by(username=username.data).first()
             if user:

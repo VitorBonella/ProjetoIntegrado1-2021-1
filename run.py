@@ -1,3 +1,6 @@
+"""
+Módulo de inicialização do servidor
+"""
 from app import app
 import os
 import locale

@@ -1,3 +1,6 @@
+"""
+Módulo de realização do build
+"""
 from setuptools import setup, find_packages
 
 setup(

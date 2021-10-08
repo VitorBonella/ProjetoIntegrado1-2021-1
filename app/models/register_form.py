@@ -8,7 +8,9 @@ import phonenumbers
 
 
 class RegisterForm(FlaskForm):
+    """ Classe para o formulário de Registro
 
+    """
     name = StringField("name", validators=[DataRequired()])
     username = StringField("username", validators=[DataRequired()])
     email = EmailField('email', [validators.DataRequired(), validators.Email()])

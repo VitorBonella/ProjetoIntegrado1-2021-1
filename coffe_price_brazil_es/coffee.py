@@ -1,11 +1,17 @@
 from coffe_price_brazil_es.get_coffee_csv_file import get_csv_file
 import pandas as pd
+
+
 class Coffee:
+    """
+    Classe para armazenar as informações sobre o café
+    """
     def __init__(self):
         try:
             self.table, self.info = get_csv_file()
         except AttributeError:
             print("CSV COFFEE FILES ARE OFFLINE")
+
 
     def update_prices(self, table):
         """ Atualiza a tabela de preços

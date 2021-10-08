@@ -5,7 +5,9 @@ from wtforms.validators import DataRequired
 
 
 class AnnouceForm(FlaskForm):
+    """ Classe para o formulário de anúncio
 
+    """
     coffe_type = SelectField("coffe_type", choices=[('1', 'Arabica "Dura"'),
                                                     ('2', 'Arabica "Rio"'),
                                                     ('3', 'Conillon')])

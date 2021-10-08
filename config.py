@@ -1,3 +1,6 @@
+"""
+Módulo de configuração do servidor flask
+"""
 DEBUG = False
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'

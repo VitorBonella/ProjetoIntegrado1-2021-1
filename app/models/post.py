@@ -4,6 +4,9 @@ from app.models.user import User
 
 
 class Post(db.Model):
+    """ Classe da tabela de anúncios
+
+    """
     __tablename__ = "posts"
 
     post_id = db.Column(db.Integer, primary_key=True)
