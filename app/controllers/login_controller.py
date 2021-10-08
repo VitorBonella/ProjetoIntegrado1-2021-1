@@ -17,6 +17,8 @@ def load_user(id_u):
 def signup():
     """ Renderizar a página de registro
 
+    A função valida os dados quando enviados, para que não hajam registros indevidos
+
     :return: Página de registro
     :rtype: Template HTML
     """
@@ -46,6 +48,8 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """ Renderizar página de login
+
+    Realiza login baseada na base de dados, testando a senha.
 
     :return: Página de login
     :rtype: Template HTML
@@ -78,6 +82,8 @@ def logout():
 @login_required
 def user(username):
     """ Renderizar a aba de Dashboard de um usuário
+
+    Entra na pagina do perfil do usuario se ele existir
 
     :param username: Username de usuário
     :type username: String
