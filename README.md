@@ -7,7 +7,7 @@ Foi desenvolvida uma aplicação web para comportar as funcionalidades do app. A
 
 A aplicação e suas funcionalidades podem ser acessadas publicamente neste [link](cafe-app-pi.herokuapp.com).
 
-Além disso a documentação está disponivel através do github Pages através deste [link](https://vitorbonella.github.io/ProjetoIntegrado1-2021-1/).
+Além disso a documentação está disponivel através do github Pages [link](https://vitorbonella.github.io/ProjetoIntegrado1-2021-1/).
 
 ## Como contribuir
 
@@ -47,6 +47,6 @@ Uma licença permissiva curta e simples com condições que exigem apenas a pres
 
 Este trabalho for feito por Luis Eduardo Camara e Vitor Bonella para a matéria de Projeto Integrado I 2021/1.
 
-**Luis Eduardo Camara**: Graduando desde 2019 em Ciência da Computação na Universidade Federal do Espirito Santo
+**Luis Eduardo Camara**: Graduando desde 2019 em Ciência da Computação na Universidade Federal do Espirito Santo. Áreas de Interesse: Programação Competitiva.
 
 **Vitor Bonella**: Graduando desde 2019 em Ciência da Computação na Universidade Federal do Espirito Santo.  Áreas de Interesse: Aprendizado de Máquina, Ciência de Dados, Redes de Computadores.
