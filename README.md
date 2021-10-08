@@ -31,6 +31,12 @@ OBS: *Caso queira que as mudanças no código feitas reflitam sem que seja neces
 
 Para contribuir basta dar um commit, que depois de revisado pelos criadores do app, irá ser incluído ou não ao projeto.
 
+É importante que sejam realizados teste antes de enviar, para realizar o teste use os comandos:
+
+```
+pytest -v test/ 
+```
+
 ## Versions
 
 |Data|Versão|Log|
